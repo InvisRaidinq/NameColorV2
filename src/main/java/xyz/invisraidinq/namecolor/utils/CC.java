@@ -3,6 +3,9 @@ package xyz.invisraidinq.namecolor.utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CC {
 
     /**
@@ -11,6 +14,18 @@ public class CC {
      */
     public static String colour(String text) {
         return ChatColor.translateAlternateColorCodes('&', text);
+    }
+
+    /**
+     * @param list The array to translate
+     * @return A translated array
+     */
+    public static List<String> colour (List<String> list) {
+        List<String> translated = new ArrayList<>();
+        for (String string : list) {
+            translated.add(colour(string));
+        }
+        return translated;
     }
 
     /**
