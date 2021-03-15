@@ -2,8 +2,8 @@ package xyz.invisraidinq.namecolor;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import xyz.invisraidinq.namecolor.namecolor.NameColor;
-import xyz.invisraidinq.namecolor.namecolor.NameColorCommand;
+import xyz.invisraidinq.namecolor.namecolor.ColorGUIClickListner;
+import xyz.invisraidinq.namecolor.namecolor.ColorGUICommand;
 import xyz.invisraidinq.namecolor.namecolor.NameColorManager;
 import xyz.invisraidinq.namecolor.profile.ProfileManager;
 import xyz.invisraidinq.namecolor.profile.listeners.ProfileJoinEvent;
@@ -32,11 +32,12 @@ public class NameColorPlugin extends JavaPlugin {
 
         Arrays.asList(
                 new ProfileJoinEvent(this),
-                new ProfileQuitEvent(this)
+                new ProfileQuitEvent(this),
+                new ColorGUIClickListner(this)
         ).forEach(listener -> Bukkit.getPluginManager().registerEvents(listener, this));
 
         CommandRegister commandRegister = new CommandRegister();
-        commandRegister.registerCommand(new NameColorCommand(this), this, false);
+        commandRegister.registerCommand(new ColorGUICommand(this), this, false);
 
         CC.log("Plugin enabled in " + (System.currentTimeMillis() - start) + "ms");
     }

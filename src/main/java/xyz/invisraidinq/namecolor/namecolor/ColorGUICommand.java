@@ -8,12 +8,12 @@ import xyz.invisraidinq.namecolor.NameColorPlugin;
 import xyz.invisraidinq.namecolor.utils.CC;
 import xyz.invisraidinq.namecolor.utils.command.ExecutableCommand;
 
-public class NameColorCommand extends ExecutableCommand {
+public class ColorGUICommand extends ExecutableCommand {
 
     private final NameColorPlugin plugin;
 
-    public NameColorCommand(NameColorPlugin plugin) {
-        super("namecolor", "Open the namecolor GUI", "nc");
+    public ColorGUICommand(NameColorPlugin plugin) {
+        super("colorgui", "Open the namecolor GUI", "colors");
 
         this.plugin = plugin;
     }
@@ -27,7 +27,7 @@ public class NameColorCommand extends ExecutableCommand {
 
         Player player = (Player) sender;
         player.sendMessage(CC.colour("&aOpening the NameColor GUI"));
-        new NameColorGUI(this.plugin).openNameColourMenu(player);
+        new NameColorGUI(this.plugin, player).openNameColourMenu();
         return true;
     }
 }

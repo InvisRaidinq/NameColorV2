@@ -12,7 +12,8 @@ public class NameColor {
     private final Material material;
     private final byte data;
     private final String name;
-    private final List<String> lore;
+    private final List<String> unlockedLore;
+    private final List<String> lockedLore;
 
     /**
      * @param color The bukkit color code
@@ -21,16 +22,18 @@ public class NameColor {
      * @param material The material for the GUI
      * @param data The data/durability of the material
      * @param name The name of the material
-     * @param lore The lore of the material
+     * @param unlockedLore The unlocked lore of the material
+     * @param lockedLore The locked lore of the plugin
      */
-    public NameColor(String color, int slot, String permission, String material, int data, String name, List<String> lore) {
+    public NameColor(String color, int slot, String permission, String material, int data, String name, List<String> unlockedLore, List<String> lockedLore) {
         this.color = color;
         this.slot = slot;
         this.permission = permission;
         this.material = Material.valueOf(material.toUpperCase());
         this.data = (byte) data;
         this.name = name;
-        this.lore = lore;
+        this.unlockedLore = unlockedLore;
+        this.lockedLore = lockedLore;
     }
 
     public String getColor() {
@@ -57,8 +60,12 @@ public class NameColor {
         return this.name;
     }
 
-    public List<String> getLore() {
-        return this.lore;
+    public List<String> getUnlockedLore() {
+        return this.unlockedLore;
+    }
+
+    public List<String> getLockedLore() {
+        return this.lockedLore;
     }
 
 }

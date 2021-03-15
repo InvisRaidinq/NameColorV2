@@ -25,7 +25,7 @@ public class ConfigFile {
         this.config = YamlConfiguration.loadConfiguration(this.configFile);
     }
 
-    public String getString (String path) {
+    public String getString(String path) {
         if(this.config.contains(path))
             return this.config.getString(path);
         return "Invalid file path specified";

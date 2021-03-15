@@ -1,4 +1,4 @@
-name: ChatColorV2
+name: NameColorV2
 version: ${project.version}
 authors: [InvisRaidinq, NeedVoid]
 main: xyz.invisraidinq.namecolor.NameColorPlugin

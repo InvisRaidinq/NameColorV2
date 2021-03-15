@@ -27,6 +27,10 @@ public class ProfileManager {
         }
     }
 
+    public Profile getProfileByPlayer(OfflinePlayer player) {
+        return this.profileMap.getOrDefault(player.getUniqueId(), null);
+    }
+
     /**
      * @param player The OfflinePlayer object
      */

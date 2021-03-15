@@ -20,6 +20,7 @@ import org.bukkit.inventory.meta.SkullMeta;
  * <i>Please do credit me if you do use this in one of your projects.</i>
  * @author NonameSL
  */
+
 public class ItemFactory {
 
     private ItemStack is;
@@ -240,8 +241,8 @@ public class ItemFactory {
      */
     public ItemFactory addLoreLine(String line) {
         ItemMeta im = is.getItemMeta();
-        List < String > lore = new ArrayList <String> ();
-        if (im.hasLore()) lore = new ArrayList <String> (im.getLore());
+        List < String > lore = new ArrayList<> ();
+        if (im.hasLore()) lore = new ArrayList<> (im.getLore());
         lore.add(line);
         im.setLore(CC.colour(lore));
         is.setItemMeta(im);

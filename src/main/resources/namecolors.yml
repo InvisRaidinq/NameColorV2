@@ -1,21 +1,26 @@
-COLORS:
-  RED:
-    COLOR: '&c'
-    SLOT: 0
-    PERMISSION: 'namecolor.color.red'
-    MATERIAL: 'WOOL'
-    DATA: 14
-    NAME: '&cRed'
-    LORE:
-      - ''
-      - '&7&o(( &f&oClick &7&oto set your name color to &c&oRed &7&o))'
-  AQUA:
-    COLOR: '&b'
-    SLOT: 1
-    PERMISSION: 'namecolor.color.aqua'
-    MATERIAL: 'WOOL'
-    DATA: 3
-    NAME: '&bAqua'
-    LORE:
-      - ''
-      - '&7&o(( &f&oClick &7&oto set your name color to &b&oAqua &7&o))'
+RED:
+  COLOR: '&c'
+  SLOT: 0
+  PERMISSION: 'namecolor.color.red'
+  MATERIAL: 'WOOL'
+  DATA: 14
+  NAME: '&cRed'
+  UNLOCKED-LORE:
+    - ''
+    - '&7&o(( &f&oClick &7&oto set your name color to &c&oRed &7&o))'
+  LOCKED-LORE:
+    - ''
+    - '&7&o(( &f7&oPurchase this at &f&ostore.server.net &7&o))'
+AQUA:
+  COLOR: '&b'
+  SLOT: 1
+  PERMISSION: 'namecolor.color.aqua'
+  MATERIAL: 'WOOL'
+  DATA: 3
+  NAME: '&bAqua'
+  UNLOCKED-LORE:
+    - ''
+    - '&7&o(( &f&oClick &7&oto set your name color to &b&oAqua &7&o))'
+  LOCKED-LORE:
+    - ''
+    - '&7&o(( &f7&oPurchase this at &f&ostore.server.net &7&o))'
