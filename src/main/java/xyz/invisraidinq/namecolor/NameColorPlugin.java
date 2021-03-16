@@ -2,7 +2,7 @@ package xyz.invisraidinq.namecolor;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import xyz.invisraidinq.namecolor.namecolor.ColorGUIClickListner;
+import xyz.invisraidinq.namecolor.namecolor.ColorGUIClickListener;
 import xyz.invisraidinq.namecolor.namecolor.commands.ColorGUICommand;
 import xyz.invisraidinq.namecolor.namecolor.NameColorManager;
 import xyz.invisraidinq.namecolor.profile.ProfileManager;
@@ -33,7 +33,7 @@ public class NameColorPlugin extends JavaPlugin {
         Arrays.asList(
                 new ProfileJoinEvent(this),
                 new ProfileQuitEvent(this),
-                new ColorGUIClickListner(this)
+                new ColorGUIClickListener(this)
         ).forEach(listener -> Bukkit.getPluginManager().registerEvents(listener, this));
 
         CommandRegister commandRegister = new CommandRegister();

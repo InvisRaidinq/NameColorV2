@@ -8,11 +8,11 @@ import xyz.invisraidinq.namecolor.NameColorPlugin;
 import xyz.invisraidinq.namecolor.profile.Profile;
 import xyz.invisraidinq.namecolor.utils.CC;
 
-public class ColorGUIClickListner implements Listener {
+public class ColorGUIClickListener implements Listener {
 
     private final NameColorPlugin plugin;
 
-    public ColorGUIClickListner(NameColorPlugin plugin) {
+    public ColorGUIClickListener(NameColorPlugin plugin) {
         this.plugin = plugin;
     }
 
@@ -53,7 +53,7 @@ public class ColorGUIClickListner implements Listener {
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&d&nUnderlined"))) {
             profile.toggleUnderlined();
-            player.sendMessage(CC.colour("&aYou have toggled your &a&nUnderlined"));
+            player.sendMessage(CC.colour("&aYou have toggled your &a&nunderlined"));
             return;
         }
 
