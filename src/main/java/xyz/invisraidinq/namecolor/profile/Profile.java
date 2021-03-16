@@ -38,10 +38,7 @@ public class Profile {
         File dataFile = new File(this.plugin.getProfileManager().getDataDirectory() + File.separator, this.uuid.toString() + ".yml");
 
         if (!dataFile.exists()) {
-            this.nameColor = "&8";
-            this.italic = false;
-            this.bold = false;
-            this.underlined = false;
+            this.loadFirstTimeData();
             return;
         }
 
@@ -103,12 +100,20 @@ public class Profile {
         this.italic = italic;
     }
 
+    public void toggleItalic() {
+        this.italic = !this.italic;
+    }
+
     public boolean isBold() {
         return this.bold;
     }
 
     public void setBold(boolean bold) {
         this.bold = bold;
+    }
+
+    public void toggleBold() {
+        this.bold = !this.bold;
     }
 
     public boolean isUnderlined() {
@@ -119,4 +124,18 @@ public class Profile {
         this.underlined = underlined;
     }
 
+    public void toggleUnderlined() {
+        this.underlined = !this.underlined;
+    }
+
+    public void resetNameColor() {
+        this.loadFirstTimeData();
+    }
+
+    private void loadFirstTimeData() {
+        this.nameColor = "&8";
+        this.italic = false;
+        this.bold = false;
+        this.underlined = false;
+    }
 }

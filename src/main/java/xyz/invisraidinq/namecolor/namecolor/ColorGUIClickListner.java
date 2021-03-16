@@ -21,13 +21,15 @@ public class ColorGUIClickListner implements Listener {
         if (event.getInventory() == null) return;
         if (event.getClickedInventory() == null) return;
         if (!event.getInventory().getName().equalsIgnoreCase(CC.colour("&dName Colours"))) return;
+        event.setCancelled(true);
+        if (event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
         Player player = (Player) event.getWhoClicked();
         String clickedItemName = event.getCurrentItem().getItemMeta().getDisplayName();
+        Profile profile = this.plugin.getProfileManager().getProfileByPlayer(player);
 
         this.plugin.getNameColorManager().getNameColorList().forEach(nameColor -> { //Probably not too efficient to loop through the list, but it's just for learning
             if (clickedItemName.equalsIgnoreCase(CC.colour(nameColor.getName()))) {
                 if (player.hasPermission(nameColor.getPermission())) {
-                    Profile profile = this.plugin.getProfileManager().getProfileByPlayer(player);
                     profile.setNameColor(nameColor.getColor());
                     player.sendMessage(CC.colour("&aYou have updated your name colour to " + profile.getNameColor() + "this"));
                     player.closeInventory();
@@ -36,5 +38,28 @@ public class ColorGUIClickListner implements Listener {
                 }
             }
         });
+
+        if (clickedItemName.equalsIgnoreCase(CC.colour("&d&oItalic"))) {
+            profile.toggleItalic();
+            player.sendMessage(CC.colour("&aYou have toggled your &a&oitalics"));
+            return;
+        }
+
+        if (clickedItemName.equalsIgnoreCase(CC.colour("&d&lBold"))) {
+            profile.toggleBold();
+            player.sendMessage(CC.colour("&aYou have toggled your &a&lbold"));
+            return;
+        }
+
+        if (clickedItemName.equalsIgnoreCase(CC.colour("&d&nUnderlined"))) {
+            profile.toggleUnderlined();
+            player.sendMessage(CC.colour("&aYou have toggled your &a&nUnderlined"));
+            return;
+        }
+
+        if (clickedItemName.equalsIgnoreCase(CC.colour("&cReset your name color"))) {
+            profile.resetNameColor();
+            player.sendMessage(CC.colour("&cYou have reset your name color"));
+        }
     }
 }

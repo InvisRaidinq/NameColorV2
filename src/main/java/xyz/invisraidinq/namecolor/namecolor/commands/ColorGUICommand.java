@@ -1,10 +1,11 @@
-package xyz.invisraidinq.namecolor.namecolor;
+package xyz.invisraidinq.namecolor.namecolor.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import xyz.invisraidinq.namecolor.NameColorPlugin;
+import xyz.invisraidinq.namecolor.namecolor.NameColorGUI;
 import xyz.invisraidinq.namecolor.utils.CC;
 import xyz.invisraidinq.namecolor.utils.command.ExecutableCommand;
 
