@@ -10,6 +10,7 @@ import xyz.invisraidinq.namecolor.profile.listeners.ProfileJoinEvent;
 import xyz.invisraidinq.namecolor.profile.listeners.ProfileQuitEvent;
 import xyz.invisraidinq.namecolor.utils.CC;
 import xyz.invisraidinq.namecolor.utils.ConfigFile;
+import xyz.invisraidinq.namecolor.utils.MessagesManager;
 import xyz.invisraidinq.namecolor.utils.command.CommandRegister;
 
 import java.util.Arrays;
@@ -17,8 +18,10 @@ import java.util.Arrays;
 public class NameColorPlugin extends JavaPlugin {
 
     private ConfigFile nameColorsFile;
+    private ConfigFile langFile;
     private ProfileManager profileManager;
     private NameColorManager nameColorManager;
+    private MessagesManager messagesManager;
 
     @Override
     public void onEnable() {
@@ -26,9 +29,11 @@ public class NameColorPlugin extends JavaPlugin {
         long start = System.currentTimeMillis();
 
         this.nameColorsFile = new ConfigFile(this, "namecolors.yml");
+        this.langFile = new ConfigFile(this, "lang.yml");
 
         this.profileManager = new ProfileManager(this);
         this.nameColorManager = new NameColorManager(this, this.nameColorsFile);
+        this.messagesManager = new MessagesManager(this, this.langFile);
 
         Arrays.asList(
                 new ProfileJoinEvent(this),
@@ -57,5 +62,13 @@ public class NameColorPlugin extends JavaPlugin {
 
     public NameColorManager getNameColorManager() {
         return this.nameColorManager;
+    }
+
+    public ConfigFile getMessages() {
+        return this.langFile;
+    }
+
+    public MessagesManager getMessagesManager() {
+        return this.messagesManager;
     }
 }

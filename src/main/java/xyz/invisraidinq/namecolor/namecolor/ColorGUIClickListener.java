@@ -34,7 +34,7 @@ public class ColorGUIClickListener implements Listener {
                     player.sendMessage(CC.colour("&aYou have updated your name colour to " + profile.getNameColor() + "this"));
                     player.closeInventory();
                 } else {
-                    player.sendMessage(CC.colour("&cYou do not have access to this! Purchase it on the server store!"));
+                    player.sendMessage(CC.colour(this.plugin.getMessages().getString("NameColorGUI.No-Permission")));
                 }
             }
         });
