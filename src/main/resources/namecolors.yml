@@ -10,7 +10,7 @@ RED:
     - '&7&o(( &f&oClick &7&oto set your name color to &c&oRed &7&o))'
   LOCKED-LORE:
     - ''
-    - '&7&o(( &f7&oPurchase this at &f&ostore.server.net &7&o))'
+    - '&7&o(( &7&oPurchase this at &f&ostore.server.net &7&o))'
 AQUA:
   COLOR: '&b'
   SLOT: 1
@@ -23,4 +23,4 @@ AQUA:
     - '&7&o(( &f&oClick &7&oto set your name color to &b&oAqua &7&o))'
   LOCKED-LORE:
     - ''
-    - '&7&o(( &f7&oPurchase this at &f&ostore.server.net &7&o))'
+    - '&7&o(( &7&oPurchase this at &f&ostore.server.net &7&o))'
