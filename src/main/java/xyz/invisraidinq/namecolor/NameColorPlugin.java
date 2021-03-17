@@ -3,6 +3,7 @@ package xyz.invisraidinq.namecolor;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.invisraidinq.namecolor.namecolor.ColorGUIClickListener;
+import xyz.invisraidinq.namecolor.namecolor.SettingsManager;
 import xyz.invisraidinq.namecolor.namecolor.commands.ColorGUICommand;
 import xyz.invisraidinq.namecolor.namecolor.NameColorManager;
 import xyz.invisraidinq.namecolor.profile.ProfileManager;
@@ -19,9 +20,11 @@ public class NameColorPlugin extends JavaPlugin {
 
     private ConfigFile nameColorsFile;
     private ConfigFile langFile;
+    private ConfigFile settingsFile;
     private ProfileManager profileManager;
     private NameColorManager nameColorManager;
     private MessagesManager messagesManager;
+    private SettingsManager settingsManager;
 
     @Override
     public void onEnable() {
@@ -30,10 +33,12 @@ public class NameColorPlugin extends JavaPlugin {
 
         this.nameColorsFile = new ConfigFile(this, "namecolors.yml");
         this.langFile = new ConfigFile(this, "lang.yml");
+        this.settingsFile = new ConfigFile(this, "settings.yml");
 
         this.profileManager = new ProfileManager(this);
         this.nameColorManager = new NameColorManager(this, this.nameColorsFile);
         this.messagesManager = new MessagesManager(this, this.langFile);
+        this.settingsManager = new SettingsManager(this, this.settingsFile);
 
         Arrays.asList(
                 new ProfileJoinEvent(this),
@@ -56,6 +61,14 @@ public class NameColorPlugin extends JavaPlugin {
         return this.nameColorsFile;
     }
 
+    public ConfigFile getMessages() {
+        return this.langFile;
+    }
+
+    public ConfigFile getSettingsFile() {
+        return this.settingsFile;
+    }
+
     public ProfileManager getProfileManager() {
         return this.profileManager;
     }
@@ -64,11 +77,11 @@ public class NameColorPlugin extends JavaPlugin {
         return this.nameColorManager;
     }
 
-    public ConfigFile getMessages() {
-        return this.langFile;
-    }
-
     public MessagesManager getMessagesManager() {
         return this.messagesManager;
+    }
+
+    public SettingsManager getSettingsManager() {
+        return this.settingsManager;
     }
 }

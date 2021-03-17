@@ -20,7 +20,7 @@ public class ColorGUIClickListener implements Listener {
     public void onClickInventory(InventoryClickEvent event) {
         if (event.getInventory() == null) return;
         if (event.getClickedInventory() == null) return;
-        if (!event.getInventory().getName().equalsIgnoreCase(CC.colour(this.plugin.getMessages().getString("NameColorGUI.Title")))) return;
+        if (!event.getInventory().getName().equalsIgnoreCase(CC.colour(this.plugin.getSettingsFile().getString("Settings.Title")))) return;
         event.setCancelled(true);
         if (event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
         Player player = (Player) event.getWhoClicked();
