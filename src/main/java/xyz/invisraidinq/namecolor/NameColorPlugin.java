@@ -3,8 +3,10 @@ package xyz.invisraidinq.namecolor;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.invisraidinq.namecolor.namecolor.ColorGUIClickListener;
+import xyz.invisraidinq.namecolor.namecolor.NameColor;
 import xyz.invisraidinq.namecolor.namecolor.commands.ColorGUICommand;
 import xyz.invisraidinq.namecolor.namecolor.NameColorManager;
+import xyz.invisraidinq.namecolor.namecolor.commands.NameColorCommand;
 import xyz.invisraidinq.namecolor.profile.ProfileManager;
 import xyz.invisraidinq.namecolor.profile.listeners.ProfileJoinEvent;
 import xyz.invisraidinq.namecolor.profile.listeners.ProfileQuitEvent;
@@ -38,6 +40,7 @@ public class NameColorPlugin extends JavaPlugin {
 
         CommandRegister commandRegister = new CommandRegister();
         commandRegister.registerCommand(new ColorGUICommand(this), this, false);
+        commandRegister.registerCommand(new NameColorCommand(this), this, false);
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new PlaceholderHook(this);

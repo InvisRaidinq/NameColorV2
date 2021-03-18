@@ -28,7 +28,7 @@ public class ColorGUIClickListener implements Listener {
         Profile profile = this.plugin.getProfileManager().getProfileByPlayer(player);
 
         this.plugin.getNameColorManager().getNameColorList().forEach(nameColor -> { //Probably not too efficient to loop through the list, but it's just for learning
-            if (clickedItemName.equalsIgnoreCase(CC.colour(nameColor.getName()))) {
+            if (clickedItemName.equalsIgnoreCase(CC.colour(nameColor.getNameWithColor()))) {
                 if (player.hasPermission(nameColor.getPermission())) {
                     profile.setNameColor(nameColor.getColor());
                     player.sendMessage(CC.colour("&aYou have updated your name colour to " + profile.getNameColor() + "this"));

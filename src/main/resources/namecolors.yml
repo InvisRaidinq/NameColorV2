@@ -4,7 +4,7 @@ RED:
   PERMISSION: 'namecolor.color.red'
   MATERIAL: 'WOOL'
   DATA: 14
-  NAME: '&cRed'
+  NAME: 'Red'
   UNLOCKED-LORE:
     - ''
     - '&7&o(( &f&oClick &7&oto set your name color to &c&oRed &7&o))'

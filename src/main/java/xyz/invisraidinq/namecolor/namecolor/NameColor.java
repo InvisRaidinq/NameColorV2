@@ -12,6 +12,7 @@ public class NameColor {
     private final Material material;
     private final byte data;
     private final String name;
+    private final String nameWithColor;
     private final List<String> unlockedLore;
     private final List<String> lockedLore;
 
@@ -32,6 +33,7 @@ public class NameColor {
         this.material = Material.valueOf(material.toUpperCase());
         this.data = (byte) data;
         this.name = name;
+        this.nameWithColor = this.color + this.name;
         this.unlockedLore = unlockedLore;
         this.lockedLore = lockedLore;
     }
@@ -58,6 +60,10 @@ public class NameColor {
 
     public String getName() {
         return this.name;
+    }
+
+    public String getNameWithColor() {
+        return this.nameWithColor;
     }
 
     public List<String> getUnlockedLore() {
