@@ -17,8 +17,6 @@ import java.util.Arrays;
 public class NameColorPlugin extends JavaPlugin {
 
     private ConfigFile nameColorsFile;
-    private ConfigFile langFile;
-    private ConfigFile settingsFile;
     private ProfileManager profileManager;
     private NameColorManager nameColorManager;
 
@@ -28,8 +26,6 @@ public class NameColorPlugin extends JavaPlugin {
         long start = System.currentTimeMillis();
 
         this.nameColorsFile = new ConfigFile(this, "namecolors.yml");
-        this.langFile = new ConfigFile(this, "lang.yml");
-        this.settingsFile = new ConfigFile(this, "settings.yml");
 
         this.profileManager = new ProfileManager(this);
         this.nameColorManager = new NameColorManager(this, this.nameColorsFile);
@@ -53,14 +49,6 @@ public class NameColorPlugin extends JavaPlugin {
 
     public ConfigFile getNameColorsFile() {
         return this.nameColorsFile;
-    }
-
-    public ConfigFile getMessages() {
-        return this.langFile;
-    }
-
-    public ConfigFile getSettingsFile() {
-        return this.settingsFile;
     }
 
     public ProfileManager getProfileManager() {

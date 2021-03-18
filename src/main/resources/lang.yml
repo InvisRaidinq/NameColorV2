@@ -1,6 +1,0 @@
-# Placeholders:
-# %color% - Get clicked color in GUI
-
-NameColorGUI:
-  No-Permission: "&cYou do not have access to this! Purchase it on the server store!"
-  Change-Color: "&aYou have updated your name colour to %color%this"

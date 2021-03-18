@@ -133,9 +133,9 @@ public class Profile {
     }
 
     private void loadFirstTimeData() {
-        this.nameColor = this.plugin.getSettingsFile().getString("Settings.Default-Color");
-        this.italic = this.plugin.getSettingsFile().getBoolean("Settings.Italic");
-        this.bold = this.plugin.getSettingsFile().getBoolean("Settings.Bold");
-        this.underlined = this.plugin.getSettingsFile().getBoolean("Settings.Underlined");
+        this.nameColor = "&8";
+        this.italic = false;
+        this.bold = false;
+        this.underlined = false;
     }
 }

@@ -20,7 +20,7 @@ public class ColorGUIClickListener implements Listener {
     public void onClickInventory(InventoryClickEvent event) {
         if (event.getInventory() == null) return;
         if (event.getClickedInventory() == null) return;
-        if (!event.getInventory().getName().equalsIgnoreCase(CC.colour(this.plugin.getSettingsFile().getString("Settings.Title")))) return;
+        if (!event.getInventory().getName().equalsIgnoreCase(CC.colour("&dName Colours"))) return;
         event.setCancelled(true);
         if (event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
         Player player = (Player) event.getWhoClicked();
@@ -31,10 +31,10 @@ public class ColorGUIClickListener implements Listener {
             if (clickedItemName.equalsIgnoreCase(CC.colour(nameColor.getName()))) {
                 if (player.hasPermission(nameColor.getPermission())) {
                     profile.setNameColor(nameColor.getColor());
-                    player.sendMessage(CC.colour(this.plugin.getMessages().getString("NameColorGUI.Change-Color").replace("%color%", profile.getNameColor())));
+                    player.sendMessage(CC.colour("&aYou have updated your name colour to " + profile.getNameColor() + "this"));
                     player.closeInventory();
                 } else {
-                    player.sendMessage(CC.colour(this.plugin.getMessages().getString("NameColorGUI.No-Permission")));
+                    player.sendMessage(CC.colour("&cYou do not have access to this! Purchase it on the server store!"));
                 }
             }
         });
