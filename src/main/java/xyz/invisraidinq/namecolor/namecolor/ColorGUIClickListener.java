@@ -42,24 +42,28 @@ public class ColorGUIClickListener implements Listener {
         if (clickedItemName.equalsIgnoreCase(CC.colour("&d&oItalic"))) {
             profile.toggleItalic();
             player.sendMessage(CC.colour("&aYou have toggled your &a&oitalics"));
+            player.closeInventory();
             return;
         }
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&d&lBold"))) {
             profile.toggleBold();
             player.sendMessage(CC.colour("&aYou have toggled your &a&lbold"));
+            player.closeInventory();
             return;
         }
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&d&nUnderlined"))) {
             profile.toggleUnderlined();
             player.sendMessage(CC.colour("&aYou have toggled your &a&nunderlined"));
+            player.closeInventory();
             return;
         }
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&cReset your name color"))) {
             profile.resetNameColor();
             player.sendMessage(CC.colour("&cYou have reset your name color"));
+            player.closeInventory();
         }
     }
 }

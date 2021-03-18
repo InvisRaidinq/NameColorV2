@@ -132,6 +132,21 @@ public class Profile {
         this.loadFirstTimeData();
     }
 
+    public String getCustomNameAttributes() {
+        String name = this.nameColor;
+        if (this.bold) {
+            name += "&l";
+        }
+        if (this.italic) {
+            name += "&o";
+        }
+        if (this.underlined) {
+            name += "&n";
+        }
+
+        return name;
+    }
+
     private void loadFirstTimeData() {
         this.nameColor = "&8";
         this.italic = false;

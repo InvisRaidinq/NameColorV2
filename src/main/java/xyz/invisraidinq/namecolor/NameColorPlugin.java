@@ -39,16 +39,16 @@ public class NameColorPlugin extends JavaPlugin {
         CommandRegister commandRegister = new CommandRegister();
         commandRegister.registerCommand(new ColorGUICommand(this), this, false);
 
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            new PlaceholderHook(this);
+        }
+
         CC.log("Plugin enabled in " + (System.currentTimeMillis() - start) + "ms");
     }
 
     @Override
     public void onDisable() {
         Bukkit.getOnlinePlayers().forEach(player -> this.profileManager.saveProfile(player));
-    }
-
-    public ConfigFile getNameColorsFile() {
-        return this.nameColorsFile;
     }
 
     public ProfileManager getProfileManager() {
