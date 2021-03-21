@@ -19,6 +19,7 @@ public class NameColorPlugin extends JavaPlugin {
 
     private ConfigFile nameColorsFile;
     private ConfigFile settingsFile;
+    private ConfigFile langFile;
     private ProfileManager profileManager;
     private NameColorManager nameColorManager;
 
@@ -29,6 +30,7 @@ public class NameColorPlugin extends JavaPlugin {
 
         this.nameColorsFile = new ConfigFile(this, "namecolors.yml");
         this.settingsFile = new ConfigFile(this, "settings.yml");
+        this.langFile = new ConfigFile(this, "lang.yml");
 
         this.profileManager = new ProfileManager(this);
         this.nameColorManager = new NameColorManager(this, this.nameColorsFile);
@@ -65,5 +67,9 @@ public class NameColorPlugin extends JavaPlugin {
 
     public ConfigFile getSettingsFile() {
         return this.settingsFile;
+    }
+
+    public ConfigFile getLangFile() {
+        return this.langFile;
     }
 }

@@ -1,0 +1,9 @@
+MESSAGES:
+  NO-PERMISSION: '&cNo permission!'
+  NO-PERMISSION-PURCHASE: '&cYou do not have access to this! Purchase it on the server store!'
+  NAMECOLOR:
+    CHANGE-COLOR: '&aYou have updated your name colour to %color%'
+    ITALICS: '&aYou have toggled your &a&oitalics'
+    BOLD: '&aYou have toggled your &a&lbold'
+    UNDERLINED: '&aYou have toggled your &a&nunderlined'
+    RESET-COLOR: '&cYou have reset your name color'

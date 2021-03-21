@@ -20,7 +20,7 @@ public class ColorGUIClickListener implements Listener {
     public void onClickInventory(InventoryClickEvent event) {
         if (event.getInventory() == null) return;
         if (event.getClickedInventory() == null) return;
-        if (!event.getInventory().getName().equalsIgnoreCase(CC.colour("&dName Colours"))) return;
+        if (!event.getInventory().getName().equalsIgnoreCase(CC.colour(this.plugin.getSettingsFile().getString("TITLE")))) return;
         event.setCancelled(true);
         if (event.getCurrentItem().getItemMeta().getDisplayName() == null) return;
         Player player = (Player) event.getWhoClicked();
@@ -31,38 +31,38 @@ public class ColorGUIClickListener implements Listener {
             if (clickedItemName.equalsIgnoreCase(CC.colour(nameColor.getNameWithColor()))) {
                 if (player.hasPermission(nameColor.getPermission())) {
                     profile.setNameColor(nameColor.getColor());
-                    player.sendMessage(CC.colour("&aYou have updated your name colour to " + profile.getNameColor() + "this"));
+                    player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.CHANGE-COLOR").replace("%color%", CC.colour(nameColor.getNameWithColor()))));
                     player.closeInventory();
                 } else {
-                    player.sendMessage(CC.colour(this.plugin.getSettingsFile().getString("MESSAGES.NO-PERMISSION-PURCHASE")));
+                    player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NO-PERMISSION-PURCHASE")));
                 }
             }
         });
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&d&oItalic"))) {
             profile.toggleItalic();
-            player.sendMessage(CC.colour("&aYou have toggled your &a&oitalics"));
+            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.ITALICS")));
             player.closeInventory();
             return;
         }
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&d&lBold"))) {
             profile.toggleBold();
-            player.sendMessage(CC.colour("&aYou have toggled your &a&lbold"));
+            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.BOLD")));
             player.closeInventory();
             return;
         }
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&d&nUnderlined"))) {
             profile.toggleUnderlined();
-            player.sendMessage(CC.colour("&aYou have toggled your &a&nunderlined"));
+            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.UNDERLINED")));
             player.closeInventory();
             return;
         }
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&cReset your name color"))) {
             profile.resetNameColor();
-            player.sendMessage(CC.colour("&cYou have reset your name color"));
+            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.RESET-COLOR")));
             player.closeInventory();
         }
     }
