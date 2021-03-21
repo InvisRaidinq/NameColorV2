@@ -1,6 +1,5 @@
 package xyz.invisraidinq.namecolor.namecolor.commands;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
@@ -11,11 +10,15 @@ import xyz.invisraidinq.namecolor.profile.Profile;
 import xyz.invisraidinq.namecolor.utils.CC;
 import xyz.invisraidinq.namecolor.utils.command.ExecutableCommand;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class NameColorCommand extends ExecutableCommand {
 
     private final NameColorPlugin plugin;
+    private final Map<UUID, String> colorChangedMap = new HashMap<>(); //Stored in a map because I have no idea how else to do it in a lambda expression
 
     public NameColorCommand(NameColorPlugin plugin) {
         super("namecolor", "Edit your name color with a command", "ncolor", "color");
@@ -45,24 +48,43 @@ public class NameColorCommand extends ExecutableCommand {
             builder.append(args[x]).append(" ");
         }
 
-        Bukkit.broadcastMessage(builder.toString().toLowerCase());
+        this.colorChangedMap.remove(player.getUniqueId()); //Just incase they're already in the map
+        this.colorChangedMap.put(player.getUniqueId(), profile.getNameColor());
 
         colorList.forEach(color -> {
-            Bukkit.broadcastMessage(color.getName() + " and stripped case is " + color.getName().toLowerCase());
             String colorToTest = color.getName() + " ";
             if (colorToTest.equalsIgnoreCase(builder.toString().toLowerCase())) {
-                Bukkit.broadcastMessage("Detected strip for " + color.getName());
                 if (player.hasPermission(color.getPermission())) {
                     profile.setNameColor(color.getColor());
                     player.sendMessage(CC.colour("&aYou have set your name color to " + color.getColor() + "this"));
                 } else {
                     player.sendMessage(CC.colour("&cNo Permission"));
                 }
-                return;
             };
         });
 
-        player.sendMessage(CC.colour("&cThat color doesn't exist"));
+        if (args[0].equalsIgnoreCase("italic")) {
+            profile.toggleItalic();
+            player.sendMessage(CC.colour("&aYou have toggled your &d&oitalic"));
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("bold")) {
+            profile.toggleBold();
+            player.sendMessage(CC.colour("&aYou have toggled your &d&lbold"));
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("underlined")) {
+            profile.toggleUnderlined();
+            player.sendMessage(CC.colour("&aYou have toggled your &d&nunderlined"));
+            return true;
+        }
+
+        if (!profile.getNameColor().equals(this.colorChangedMap.get(player.getUniqueId()))) {
+            player.sendMessage(CC.colour("&cThat color doesn't exist"));
+        }
+
         return true;
     }
 }

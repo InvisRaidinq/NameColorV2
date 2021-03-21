@@ -1,6 +1,7 @@
 package xyz.invisraidinq.namecolor.namecolor;
 
 import org.bukkit.Material;
+import xyz.invisraidinq.namecolor.utils.CC;
 
 import java.util.List;
 

@@ -17,7 +17,7 @@ AQUA:
   PERMISSION: 'namecolor.color.aqua'
   MATERIAL: 'WOOL'
   DATA: 3
-  NAME: '&bAqua'
+  NAME: 'Aqua'
   UNLOCKED-LORE:
     - ''
     - '&7&o(( &f&oClick &7&oto set your name color to &b&oAqua &7&o))'

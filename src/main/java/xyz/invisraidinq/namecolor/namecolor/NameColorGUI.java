@@ -6,11 +6,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import xyz.invisraidinq.namecolor.NameColorPlugin;
-import xyz.invisraidinq.namecolor.profile.Profile;
 import xyz.invisraidinq.namecolor.utils.CC;
 import xyz.invisraidinq.namecolor.utils.ItemFactory;
-
-import javax.swing.*;
 
 public class NameColorGUI  {
 
@@ -33,7 +30,7 @@ public class NameColorGUI  {
         this.plugin.getNameColorManager().getNameColorList().forEach(nameColor -> {
             ItemFactory factory = new ItemFactory(nameColor.getMaterial());
             factory.setDurability(nameColor.getData());
-            factory.setName(nameColor.getName());
+            factory.setName(nameColor.getNameWithColor());
 
             if (player.hasPermission(nameColor.getPermission())) {
                 factory.setLore(nameColor.getUnlockedLore());
