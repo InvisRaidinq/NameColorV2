@@ -36,7 +36,7 @@ public class NameColorCommand extends ExecutableCommand {
         }
 
         if (args.length < 1) {
-            sender.sendMessage(CC.colour("&cUsage: /" + label + " <color>"));
+            sender.sendMessage(CC.colour(this.plugin.getSettingsFile().getString("USAGE")).replace("%label%", label));
             return true;
         }
 
@@ -51,36 +51,52 @@ public class NameColorCommand extends ExecutableCommand {
         this.colorChangedMap.remove(player.getUniqueId()); //Just incase they're already in the map
         this.colorChangedMap.put(player.getUniqueId(), profile.getNameColor());
 
-        colorList.forEach(color -> {
+        for (NameColor color : this.plugin.getNameColorManager().getNameColorList()) {
             String colorToTest = color.getName() + " ";
             if (colorToTest.equalsIgnoreCase(builder.toString().toLowerCase())) {
                 if (player.hasPermission(color.getPermission())) {
                     profile.setNameColor(color.getColor());
                     player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.CHANGE-COLOR")
-                            .replace("%color%", CC.colour(color.getNameWithColor().toLowerCase()))));
-                    return;
+                            .replace("%colorname%", CC.colour(color.getNameWithColor().toLowerCase()))));
+                    return true;
                 } else {
-                    player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NO-PERMISSION")));
+                    player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NO-PERMISSION-PURCHASE")));
+                    return true;
                 }
-            };
-        });
+            }
+        }
 
         if (args[0].equalsIgnoreCase("italic")) {
-            profile.toggleItalic();
-            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.ITALICS")));
-            return true;
+            if (player.hasPermission("namecolor.format.italic")) {
+                profile.toggleItalic();
+                player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.ITALICS")));
+                return true;
+            } else {
+                player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NO-PERMISSION-PURCHASE")));
+                return true;
+            }
         }
 
         if (args[0].equalsIgnoreCase("bold")) {
-            profile.toggleBold();
-            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.BOLD")));
-            return true;
+            if (player.hasPermission("namecolor.format.bold")) {
+                profile.toggleBold();
+                player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.BOLD")));
+                return true;
+            } else {
+                player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NO-PERMISSION-PURCHASE")));
+                return true;
+            }
         }
 
         if (args[0].equalsIgnoreCase("underlined")) {
-            profile.toggleUnderlined();
-            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.UNDERLINED")));
-            return true;
+            if (player.hasPermission("namecolor.format.underlined")) {
+                profile.toggleUnderlined();
+                player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.UNDERLINED")));
+                return true;
+            } else {
+                player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NO-PERMISSION-PURCHASE")));
+                return true;
+            }
         }
 
         if (args[0].equalsIgnoreCase("reset")) {
@@ -89,7 +105,7 @@ public class NameColorCommand extends ExecutableCommand {
             return true;
         }
 
-        if (!profile.getNameColor().equals(this.colorChangedMap.get(player.getUniqueId()))) {
+        if (!args[0].equalsIgnoreCase(this.colorChangedMap.get(player.getUniqueId()))) {
             player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.INVALID-COLOR")));
         }
 

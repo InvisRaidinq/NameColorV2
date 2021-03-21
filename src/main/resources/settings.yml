@@ -1,2 +1,6 @@
+# Placeholders:
+# %label% - command label
+
 DEFAULT-COLOR: '&8'
 TITLE: '&dName Colours'
+USAGE: '&cUsage: /%label% <color>'

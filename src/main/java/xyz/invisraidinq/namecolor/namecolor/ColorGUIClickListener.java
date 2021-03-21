@@ -27,18 +27,18 @@ public class ColorGUIClickListener implements Listener {
         String clickedItemName = event.getCurrentItem().getItemMeta().getDisplayName();
         Profile profile = this.plugin.getProfileManager().getProfileByPlayer(player);
 
-        this.plugin.getNameColorManager().getNameColorList().forEach(nameColor -> { //Probably not too efficient to loop through the list, but it's just for learning
+        for (NameColor nameColor : this.plugin.getNameColorManager().getNameColorList()) {
             if (clickedItemName.equalsIgnoreCase(CC.colour(nameColor.getNameWithColor()))) {
                 if (player.hasPermission(nameColor.getPermission())) {
                     profile.setNameColor(nameColor.getColor());
                     player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.CHANGE-COLOR")
-                            .replace("%color%", CC.colour(nameColor.getNameWithColor().toLowerCase()))));
+                            .replace("%colorname%", CC.colour(nameColor.getNameWithColor().toLowerCase()))));
                     player.closeInventory();
                 } else {
                     player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NO-PERMISSION-PURCHASE")));
                 }
             }
-        });
+        }
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&d&oItalic"))) {
             profile.toggleItalic();
