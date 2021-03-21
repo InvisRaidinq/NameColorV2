@@ -3,7 +3,6 @@ package xyz.invisraidinq.namecolor;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.invisraidinq.namecolor.namecolor.ColorGUIClickListener;
-import xyz.invisraidinq.namecolor.namecolor.NameColor;
 import xyz.invisraidinq.namecolor.namecolor.commands.ColorGUICommand;
 import xyz.invisraidinq.namecolor.namecolor.NameColorManager;
 import xyz.invisraidinq.namecolor.namecolor.commands.NameColorCommand;
@@ -19,6 +18,7 @@ import java.util.Arrays;
 public class NameColorPlugin extends JavaPlugin {
 
     private ConfigFile nameColorsFile;
+    private ConfigFile settingsFile;
     private ProfileManager profileManager;
     private NameColorManager nameColorManager;
 
@@ -28,6 +28,7 @@ public class NameColorPlugin extends JavaPlugin {
         long start = System.currentTimeMillis();
 
         this.nameColorsFile = new ConfigFile(this, "namecolors.yml");
+        this.settingsFile = new ConfigFile(this, "namecolors.yml");
 
         this.profileManager = new ProfileManager(this);
         this.nameColorManager = new NameColorManager(this, this.nameColorsFile);
@@ -60,5 +61,9 @@ public class NameColorPlugin extends JavaPlugin {
 
     public NameColorManager getNameColorManager() {
         return this.nameColorManager;
+    }
+
+    public ConfigFile getSettingsFile() {
+        return this.settingsFile;
     }
 }

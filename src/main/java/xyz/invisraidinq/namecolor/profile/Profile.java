@@ -148,7 +148,7 @@ public class Profile {
     }
 
     private void loadFirstTimeData() {
-        this.nameColor = "&8";
+        this.nameColor = this.plugin.getSettingsFile().getString("DEFAULT-COLOR");
         this.italic = false;
         this.bold = false;
         this.underlined = false;
