@@ -83,6 +83,12 @@ public class NameColorCommand extends ExecutableCommand {
             return true;
         }
 
+        if (args[0].equalsIgnoreCase("reset")) {
+            profile.resetNameColor();
+            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.RESET-COLOR")));
+            return true;
+        }
+
         if (!profile.getNameColor().equals(this.colorChangedMap.get(player.getUniqueId()))) {
             player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.INVALID-COLOR")));
         }
