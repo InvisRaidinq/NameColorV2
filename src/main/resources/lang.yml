@@ -7,3 +7,4 @@ MESSAGES:
     BOLD: '&aYou have toggled your &a&lbold'
     UNDERLINED: '&aYou have toggled your &a&nunderlined'
     RESET-COLOR: '&cYou have reset your name color'
+    INVALID-COLOR: '&cThat color doesn''t exist'

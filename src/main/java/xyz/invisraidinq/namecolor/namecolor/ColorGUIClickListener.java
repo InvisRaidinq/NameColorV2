@@ -31,7 +31,8 @@ public class ColorGUIClickListener implements Listener {
             if (clickedItemName.equalsIgnoreCase(CC.colour(nameColor.getNameWithColor()))) {
                 if (player.hasPermission(nameColor.getPermission())) {
                     profile.setNameColor(nameColor.getColor());
-                    player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.CHANGE-COLOR").replace("%color%", CC.colour(nameColor.getNameWithColor()))));
+                    player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.CHANGE-COLOR")
+                            .replace("%color%", CC.colour(nameColor.getNameWithColor().toLowerCase()))));
                     player.closeInventory();
                 } else {
                     player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NO-PERMISSION-PURCHASE")));

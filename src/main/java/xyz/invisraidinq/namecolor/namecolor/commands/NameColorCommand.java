@@ -56,7 +56,9 @@ public class NameColorCommand extends ExecutableCommand {
             if (colorToTest.equalsIgnoreCase(builder.toString().toLowerCase())) {
                 if (player.hasPermission(color.getPermission())) {
                     profile.setNameColor(color.getColor());
-                    player.sendMessage(CC.colour("&aYou have set your name color to " + color.getColor() + "this"));
+                    player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.CHANGE-COLOR")
+                            .replace("%color%", CC.colour(color.getNameWithColor().toLowerCase()))));
+                    return;
                 } else {
                     player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NO-PERMISSION")));
                 }
@@ -65,24 +67,24 @@ public class NameColorCommand extends ExecutableCommand {
 
         if (args[0].equalsIgnoreCase("italic")) {
             profile.toggleItalic();
-            player.sendMessage(CC.colour("&aYou have toggled your &d&oitalic"));
+            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.ITALICS")));
             return true;
         }
 
         if (args[0].equalsIgnoreCase("bold")) {
             profile.toggleBold();
-            player.sendMessage(CC.colour("&aYou have toggled your &d&lbold"));
+            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.BOLD")));
             return true;
         }
 
         if (args[0].equalsIgnoreCase("underlined")) {
             profile.toggleUnderlined();
-            player.sendMessage(CC.colour("&aYou have toggled your &d&nunderlined"));
+            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.UNDERLINED")));
             return true;
         }
 
         if (!profile.getNameColor().equals(this.colorChangedMap.get(player.getUniqueId()))) {
-            player.sendMessage(CC.colour("&cThat color doesn't exist"));
+            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.INVALID-COLOR")));
         }
 
         return true;
