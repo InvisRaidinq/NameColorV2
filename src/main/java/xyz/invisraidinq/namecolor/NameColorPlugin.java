@@ -28,7 +28,7 @@ public class NameColorPlugin extends JavaPlugin {
         long start = System.currentTimeMillis();
 
         this.nameColorsFile = new ConfigFile(this, "namecolors.yml");
-        this.settingsFile = new ConfigFile(this, "namecolors.yml");
+        this.settingsFile = new ConfigFile(this, "settings.yml");
 
         this.profileManager = new ProfileManager(this);
         this.nameColorManager = new NameColorManager(this, this.nameColorsFile);

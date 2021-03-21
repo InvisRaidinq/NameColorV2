@@ -58,7 +58,7 @@ public class NameColorCommand extends ExecutableCommand {
                     profile.setNameColor(color.getColor());
                     player.sendMessage(CC.colour("&aYou have set your name color to " + color.getColor() + "this"));
                 } else {
-                    player.sendMessage(CC.colour(this.plugin.getSettingsFile().getString("NO-PERMISSION")));
+                    player.sendMessage(CC.colour(this.plugin.getSettingsFile().getString("MESSAGES.NO-PERMISSION")));
                 }
             };
         });
