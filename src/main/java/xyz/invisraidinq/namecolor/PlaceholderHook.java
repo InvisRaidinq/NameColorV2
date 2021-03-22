@@ -18,7 +18,7 @@ public class PlaceholderHook extends PlaceholderExpansion {
 
     @Override
     public String getIdentifier() {
-        return "namecolorv2";
+        return "namecolor";
     }
 
     @Override
@@ -42,6 +42,6 @@ public class PlaceholderHook extends PlaceholderExpansion {
             return CC.colour(profile.getCustomNameAttributes() + player.getName());
         }
 
-        return "[NameColorV2] Invalid Placeholder Request";
+        return "[NameColor] Invalid Placeholder Request";
     }
 }

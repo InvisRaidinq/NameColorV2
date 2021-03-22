@@ -111,4 +111,5 @@ public class NameColorCommand extends ExecutableCommand {
 
         return true;
     }
+
 }

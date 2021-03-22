@@ -1,2 +1,2 @@
-# NameColorV2
+# NameColor
 A NameColor plugin to help NeedVoid learn basic Bukkit

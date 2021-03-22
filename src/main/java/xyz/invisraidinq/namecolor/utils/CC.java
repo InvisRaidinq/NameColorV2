@@ -32,7 +32,7 @@ public class CC {
      * @param text The text to output
      */
     public static void log(String text) {
-        Bukkit.getConsoleSender().sendMessage(colour("[NameColorV2] " + text));
+        Bukkit.getConsoleSender().sendMessage(colour("[NameColor] " + text));
     }
 
 

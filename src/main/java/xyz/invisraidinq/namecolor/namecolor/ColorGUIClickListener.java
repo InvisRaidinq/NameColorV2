@@ -41,30 +41,35 @@ public class ColorGUIClickListener implements Listener {
         }
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&d&oItalic"))) {
-            profile.toggleItalic();
-            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.ITALICS")));
-            player.closeInventory();
-            return;
+            if (player.hasPermission("namecolor.format.italic")) {
+                profile.toggleItalic();
+                player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.ITALICS")));
+            } else {
+                player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NO-PERMISSION-PURCHASE")));
+            }
         }
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&d&lBold"))) {
-            profile.toggleBold();
-            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.BOLD")));
-            player.closeInventory();
-            return;
+            if (player.hasPermission("namecolor.format.bold")) {
+                profile.toggleBold();
+                player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.BOLD")));
+            } else {
+                player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NO-PERMISSION-PURCHASE")));
+            }
         }
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&d&nUnderlined"))) {
-            profile.toggleUnderlined();
-            player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.UNDERLINED")));
-            player.closeInventory();
-            return;
+            if (player.hasPermission("namecolor.format.underlined")) {
+                profile.toggleUnderlined();
+                player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.UNDERLINED")));
+            } else {
+                player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NO-PERMISSION-PURCHASE")));
+            }
         }
 
         if (clickedItemName.equalsIgnoreCase(CC.colour("&cReset your name color"))) {
             profile.resetNameColor();
             player.sendMessage(CC.colour(this.plugin.getLangFile().getString("MESSAGES.NAMECOLOR.RESET-COLOR")));
-            player.closeInventory();
         }
     }
 }
