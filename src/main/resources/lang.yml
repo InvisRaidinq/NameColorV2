@@ -4,6 +4,7 @@
 MESSAGES:
   NO-PERMISSION: '&cNo permission!'
   NO-PERMISSION-PURCHASE: '&cYou do not have access to this! Purchase it on the server store!'
+
   NAMECOLOR:
     CHANGE-COLOR: '&aYou have updated your name colour to %colorname%'
     ITALICS: '&aYou have toggled your &a&oitalics'

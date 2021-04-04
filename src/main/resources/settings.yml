@@ -4,3 +4,15 @@
 DEFAULT-COLOR: '&8'
 TITLE: '&dName Colours'
 USAGE: '&cUsage: /%label% <color>'
+GUI-SIZE: 18
+
+FORMATTING:
+  ITALIC:
+    SLOT: 14
+    MATERIAL: 'BEDROCK'
+  BOLD:
+    SLOT: 15
+    MATERIAL: 'BEDROCK'
+  UNDERLINE:
+    SLOT: 16
+    MATERIAL:

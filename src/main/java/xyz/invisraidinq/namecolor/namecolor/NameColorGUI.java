@@ -21,7 +21,8 @@ public class NameColorGUI  {
     }
 
     public void openNameColourMenu() {
-        Inventory colorInv = Bukkit.createInventory(null, 18, (CC.colour(this.plugin.getSettingsFile().getString("TITLE"))));
+        Inventory colorInv = Bukkit.createInventory(null, this.plugin.getSettingsFile().getInt("GUI-SIZE"),
+                (CC.colour(this.plugin.getSettingsFile().getString("TITLE"))));
 
         for (int x = 0; x < colorInv.getSize(); x++) {
             colorInv.setItem(x, this.glassFiller); //Sets this in every single slot as a filler
