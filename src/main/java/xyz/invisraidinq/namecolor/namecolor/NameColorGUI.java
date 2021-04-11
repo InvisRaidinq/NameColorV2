@@ -43,16 +43,20 @@ public class NameColorGUI  {
         });
 
         //Italic item
-        colorInv.setItem(14, new ItemFactory(Material.BEDROCK).setName("&d&oItalic").setLore(" ", "&7&o(( &f&oClick &7&oto toggle &f&oitalics &7&o))").build());
+        colorInv.setItem(this.plugin.getSettingsFile().getInt("FORMATTING.ITALIC.SLOT"),
+                new ItemFactory(Material.BEDROCK).setName("&d&oItalic").setLore(" ", "&7&o(( &f&oClick &7&oto toggle &f&oitalics &7&o))").build());
 
         //Bold item
-        colorInv.setItem(15, new ItemFactory(Material.BEDROCK).setName("&d&lBold").setLore(" ", "&7&o(( &f&oClick &7&oto toggle &f&lbold &7&o))").build());
+        colorInv.setItem(this.plugin.getSettingsFile().getInt("FORMATTING.BOLD.SLOT"),
+                new ItemFactory(Material.BEDROCK).setName("&d&lBold").setLore(" ", "&7&o(( &f&oClick &7&oto toggle &f&lbold &7&o))").build());
 
         //Underlined item
-        colorInv.setItem(16, new ItemFactory(Material.BEDROCK).setName("&d&nUnderlined").setLore(" ", "&7&o(( &f&oClick &7&oto toggle &f&nunderline &7&o))").build());
+        colorInv.setItem(this.plugin.getSettingsFile().getInt("FORMATTING.UNDERLINED.SLOT"),
+                new ItemFactory(Material.BEDROCK).setName("&d&nUnderlined").setLore(" ", "&7&o(( &f&oClick &7&oto toggle &f&nunderline &7&o))").build());
 
         //Name color reset item
-        colorInv.setItem(17, new ItemFactory(Material.REDSTONE_BLOCK).setName("&cReset your name color").build());
+        colorInv.setItem(this.plugin.getSettingsFile().getInt("FORMATTING.RESET.SLOT"),
+                new ItemFactory(Material.REDSTONE_BLOCK).setName("&cReset your name color").build());
 
         this.player.openInventory(colorInv);
     }
