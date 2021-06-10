@@ -11,16 +11,16 @@ RED:
   LOCKED-LORE:
     - ''
     - '&7&o(( &f7&oPurchase this at &f&ostore.server.net &7&o))'
-AQUA:
+PENCIL:
+  ICON: '✎'
   COLOR: '&b'
   SLOT: 1
-  PERMISSION: 'namecolor.color.aqua'
+  PERMISSION: 'icons.icon.pencil'
   MATERIAL: 'WOOL'
-  DATA: 3
-  NAME: 'Aqua'
+  DATA: 1
   UNLOCKED-LORE:
     - ''
-    - '&7&o(( &f&oClick &7&oto set your name color to &b&oAqua &7&o))'
+    - '&7&o(( &f&oClick &7&oto set your tab icon to &b&o✎ &7&o))'
   LOCKED-LORE:
     - ''
     - '&7&o(( &f7&oPurchase this at &f&ostore.server.net &7&o))'
